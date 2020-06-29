@@ -1,4 +1,4 @@
-const client = require('./config')
+const client = require('./database/config')
 
 exports.getTasks = (req, res) => {
     client.query('SELECT * FROM todo')
@@ -28,4 +28,11 @@ exports.deleteTask = (req, res) => {
     client.query('DELETE FROM todo WHERE id = $1', [id])
         .then(() => res.status(200).json({ status: 'success', message: 'Task deleted' }))
         .catch(err => console.log("Error", err.message))
+}
+
+exports.getTaskById = (req, res) => {
+    const id = parseInt(req.params.id);
+    client.query('SELECT * FROM todo where id = $1', [id])
+        .then((result) => res.status(200).json(result))
+        .catch(err => console.log(err))
 }

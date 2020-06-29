@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const tasks = require('./todotask.controller.js')
+    const tasks = require('../todotask.controller')
 
     app.get('/tasks', tasks.getTasks);
     app.post('/tasks', tasks.createTask);

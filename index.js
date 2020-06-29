@@ -8,5 +8,5 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 
-require('./routes')(app);
+require('./routes/todoRoutes')(app);
 app.listen(3000, () => console.log("Server listening"));
