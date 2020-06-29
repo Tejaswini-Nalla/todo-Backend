@@ -32,7 +32,7 @@ exports.deleteTask = (req, res) => {
 
 exports.getTaskById = (req, res) => {
     const id = parseInt(req.params.id);
-    client.query('SELECT * FROM todo where id = $1', [id])
-        .then((result) => res.status(200).json(result))
+    client.query('SELECT * FROM todo WHERE id = $1', [id])
+        .then((result) => res.status(200).json(result.rows))
         .catch(err => console.log(err))
 }
