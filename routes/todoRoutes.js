@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.post('/tasks', tasks.createTask);
     app.put('/tasks/:id', tasks.updateTask);
     app.delete('/tasks/:id', tasks.deleteTask);
+    app.get('tasks/:id', tasks.getTaskById);
 }
