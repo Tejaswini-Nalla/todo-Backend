@@ -1,4 +1,4 @@
-const env = require('./env.js.js');
+const env = require('./env.js');
 const { Client } = require('pg');
 const client = new Client({
     user: env.username,
